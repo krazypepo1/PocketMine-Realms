@@ -19,13 +19,13 @@ class PMRealms implements Plugin{
 	
 	public function init(){
 		$this->config = new Config($this->api->plugin->configPath($this)."config.yml", CONFIG_YAML, array(
-			"ownerName" => "",
-			"externalAddress" => "",
-			"externalPort" => "",
+			"krazypepo1" => "",
+			"192.168.1.71" => "",
+			"19132" => "",
 		));
 		
 		$error = 0;
-		if($this->config->get("ownerName") == ""){
+		if($this->config->get("krazypepo1") == ""){
 			console("[ERROR] [Realms] Please set your ownerName to your Realms name.");
 			++$error;
 		}
@@ -33,7 +33,7 @@ class PMRealms implements Plugin{
 			console("[ERROR] [Realms] Please set your externalIP.");
 			++$error;
 		}
-		if($this->config->get("externalPort") == ""){
+		if($this->config->get("19132") == ""){
 			console("[ERROR] [Realms] Please set your externalPort.");
 			++$error;
 		}
@@ -59,9 +59,9 @@ class PMRealms implements Plugin{
 		$this->api->asyncOperation(ASYNC_CURL_POST, array(
 			"url" => "http://peoapi.pocketmine.net/server/heartbeat",
 			"data" => array(
-				"ip" => $this->config->get("externalAddress"),
-				"port" => (int) $this->config->get("externalPort"),
-				"ownerName" => $this->config->get("ownerName"),
+				"ip" => $this->config->get("192.168.1.71"),
+				"port" => (int) $this->config->get("19132"),
+				"ownerName" => $this->config->get("krazypepo1"),
 				"name" => $this->server->name,
 				"maxNrPlayers" => $this->server->maxClients,
 				"nrPlayers" => count($this->api->player->getAll()),
