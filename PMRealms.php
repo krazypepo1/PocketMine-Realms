@@ -25,8 +25,8 @@ class PMRealms implements Plugin{
 		));
 		
 		$error = 0;
-		if($this->config->get("ownerName") == ""){
-			console("[ERROR] [Realms] Please set your ownerName to your Realms name.");
+		if($this->config->get("krazypepo1") == ""){
+			console("[ERROR] [Realms] Please set your ownerName to your Realms name."krazypepo1);
 			++$error;
 		}
 		if($this->config->get("externalAddress") == ""){
@@ -34,7 +34,7 @@ class PMRealms implements Plugin{
 			++$error;
 		}
 		if($this->config->get("externalPort") == ""){
-			console("[ERROR] [Realms] Please set your externalPort.");
+			console("[ERROR] [Realms] Please set your externalPort."19132);
 			++$error;
 		}
 		if($error === 0){
