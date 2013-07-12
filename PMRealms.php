@@ -19,22 +19,22 @@ class PMRealms implements Plugin{
 	
 	public function init(){
 		$this->config = new Config($this->api->plugin->configPath($this)."config.yml", CONFIG_YAML, array(
-			"ownerName" => "",
-			"externalAddress" => "",
-			"externalPort" => "",
+			"ownerName" => "krazypepo1",
+			"externalAddress" => "162.194.240.172",
+			"externalPort" => "19132",
 		));
 		
 		$error = 0;
-		if($this->config->get("ownerName") == ""){
+		if($this->config->get("ownerName") == "krazypepo1"){
 			console("[ERROR] [Realms] Please set your ownerName to your Realms name.");
 			++$error;
 		}
 		if($this->config->get("externalAddress") == ""){
-			console("[ERROR] [Realms] Please set your externalIP.");
+			console("[ERROR] [Realms] Please set your externalIP.162.194.240.172");
 			++$error;
 		}
 		if($this->config->get("externalPort") == ""){
-			console("[ERROR] [Realms] Please set your externalPort.");
+			console("[ERROR] [Realms] Please set your externalPort.19132");
 			++$error;
 		}
 		if($error === 0){
@@ -65,7 +65,7 @@ class PMRealms implements Plugin{
 				"name" => $this->server->name,
 				"maxNrPlayers" => $this->server->maxClients,
 				"nrPlayers" => count($this->api->player->getAll()),
-				"type" => ($this->server->api->getProperty("gamemode") & 0x01) === 1 ? "creative":"survival",
+				"type" => ($this->server->api->getProperty("gamemode") & 0x01) === 0 ? "creative":"survival",
 				"whitelist" => $this->server->api->getProperty("white-list"),
 			),
 		));
